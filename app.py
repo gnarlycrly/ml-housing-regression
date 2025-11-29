@@ -75,7 +75,7 @@ with col2:
 with col3:
     region = st.selectbox("Select Region", regions, index=0)
 
-if st.button("Show Predictions 🚀"):
+if st.button("Show Predictions 🔮"):
     mask = (disp_df["year"] == year) & (disp_df["month"] == month)
     if region != "All":
         mask &= (disp_df["region"] == region)
