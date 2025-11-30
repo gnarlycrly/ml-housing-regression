@@ -12,7 +12,7 @@ st.markdown("""
     <style>
         /* Root theme colors */
         :root {
-            --accent-pink: #ff7eb6;        /* soft bright pink */
+            --accent-pink: #f7a6c9;        /* soft bright pink */
             --accent-pink-light: #ffd9ec;  /* pale pastel pink */
             --text-dark: #2d2d2d;
             --text-light: #5f5f5f;
@@ -152,7 +152,7 @@ fe_df, disp_df = load_data()
 # ============================
 # UI
 # ============================
-st.title("✨ Housing Price Prediction — Holdout Explorer 🏠")
+st.title("🏠Housing Price Prediction — Holdout Explorer")
 
 years = sorted(disp_df["year"].unique())
 months = list(range(1, 13))
@@ -166,7 +166,7 @@ with col2:
 with col3:
     region = st.selectbox("Select Region", regions, index=0)
 
-if st.button("Show Predictions 🔮"):
+if st.button("Show Predictions ✨"):
     mask = (disp_df["year"] == year) & (disp_df["month"] == month)
     if region != "All":
         mask &= (disp_df["region"] == region)
