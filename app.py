@@ -6,6 +6,97 @@ import boto3, os
 from pathlib import Path
 
 # ============================
+# Minimal Light Soft Pink Theme
+# ============================
+st.markdown("""
+    <style>
+        /* Root theme colors */
+        :root {
+            --accent-pink: #ff7eb6;        /* soft bright pink */
+            --accent-pink-light: #ffd9ec;  /* pale pastel pink */
+            --text-dark: #2d2d2d;
+            --text-light: #5f5f5f;
+            --bg-light: #ffffff;
+            --bg-soft: #fafafa;
+        }
+
+        /* Page background */
+        .main {
+            background-color: var(--bg-soft) !important;
+        }
+
+        /* Titles */
+        h1, h2, h3, h4 {
+            font-family: "Poppins", sans-serif !important;
+            color: var(--text-dark) !important;
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-size: 2.4rem !important;
+            color: var(--accent-pink) !important;
+        }
+
+        h2, h3 {
+            font-weight: 600 !important;
+        }
+
+        /* Buttons */
+        .stButton>button {
+            background-color: var(--accent-pink) !important;
+            color: white !important;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .stButton>button:hover {
+            background-color: #ff66a8 !important;
+            transform: translateY(-1px);
+        }
+
+        /* Selectbox labels */
+        .stSelectbox label {
+            color: var(--text-light) !important;
+            font-weight: 600 !important;
+        }
+
+        /* Dataframes */
+        .dataframe {
+            border-radius: 10px;
+            border: 1px solid var(--accent-pink-light);
+            background-color: var(--bg-light);
+            overflow: hidden;
+        }
+
+        /* Metric cards */
+        [data-testid="metric-container"] {
+            background-color: white !important;
+            border-radius: 12px !important;
+            border: 1px solid var(--accent-pink-light) !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            padding: 15px !important;
+        }
+
+        /* Chart wrapper */
+        .js-plotly-plot, .plot-container {
+            border-radius: 10px !important;
+            border: 1px solid var(--accent-pink-light);
+            background-color: white;
+            padding: 5px;
+        }
+
+        /* Info + warning boxes */
+        .st-info, .st-warning {
+            border-left: 4px solid var(--accent-pink) !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# ============================
 # Config
 # ============================
 API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000/predict")
@@ -61,7 +152,7 @@ fe_df, disp_df = load_data()
 # ============================
 # UI
 # ============================
-st.title("🏠 Housing Price Prediction — Holdout Explorer")
+st.title("✨ Housing Price Prediction — Holdout Explorer 🏠")
 
 years = sorted(disp_df["year"].unique())
 months = list(range(1, 13))
@@ -181,3 +272,4 @@ if st.button("Show Predictions 🔮"):
 
 else:
     st.info("Choose filters and click **Show Predictions** to compute.")
+
